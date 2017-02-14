@@ -18,7 +18,15 @@
         <item name="android:layout_width">88dp</item>
         <item name="android:layout_height">88dp</item>
         <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#5C538C</item>
         <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="Icons">
+        <item name="android:layout_width">88dp</item>
+        <item name="android:layout_height">88dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
     </style>
 
 </resources>

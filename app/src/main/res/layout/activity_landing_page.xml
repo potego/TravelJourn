@@ -14,18 +14,29 @@
         android:background="@color/header_background">
         
         <ImageView
+            android:id="@+id/avatar_id"
             style="@style/avatar"
-            android:src="@drawable/avatar"
-            android:onClick="Profile"/>
+            android:onClick="Profile"
+            android:background="@drawable/image"/>
 
         <ImageView
+            android:id="@+id/new_note_id"
            style="@style/avatar"
+            android:onClick="new_note"
             android:src="@drawable/new_icon"/>
 
+        <ImageView
+            android:id="@+id/chats_id"
+           style="@style/avatar"
+            android:onClick="chats"
+            android:src="@drawable/chats"/>
+
         <Button
+            android:id="@+id/save_id"
             style="@style/SOS_button"
             android:text="S.O.S"
             android:onClick="saveMe"
+            android:background="@android:color/transparent"
             />
     </LinearLayout>
 
