@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.admin.traveljourn">
+    package="com.example.admin.traveljourn"
+    >
 
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
+        android:name="android.support.multidex.MultiDexApplication"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -25,8 +27,18 @@
         <activity android:name=".Profile" />
         <activity android:name=".New_note" />
         <activity android:name=".Chats" />
-        <activity android:name=".Audio_Recording" />
-        <activity android:name=".itemMessage"></activity>
+        <activity android:name=".Audio" />
+        <activity android:name=".itemMessage" />
+
+        <uses-permission android:name="android.permission.INTERNET" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_application_id" />
+
+        <activity android:name=".images">
+
+        </activity>
     </application>
 
 </manifest>
