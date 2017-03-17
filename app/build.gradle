@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.example.admin.traveljourn"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         multiDexEnabled true
@@ -18,6 +18,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INT/LICENSE'
+        exclude 'META-INT/LICENSE-FIREBASE.txt'
+        exclude 'META-INT/NOTICE'
+    }
 }
 
 dependencies {
@@ -25,23 +31,27 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:multidex:1.0.1'
-    testCompile 'junit:junit:4.12'
-
-    compile 'com.google.firebase:firebase-database:10.0.1'
 
     //Displaying images on firebase
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-
     //for authentication from Firebase
-    compile 'com.google.firebase:firebase-auth:10.0.1'
+
+
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.google.firebase:firebase-database:10.2.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.google.firebase:firebase-auth:10.2.0'
     compile 'com.firebaseui:firebase-ui-auth:1.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.0.0'
-    compile 'com.google.firebase:firebase-config:10.0.1'
-    compile 'com.google.firebase:firebase-storage:10.0.1'
-    compile 'com.google.firebase:firebase-messaging:10.0.1'
+    compile 'com.google.firebase:firebase-config:10.2.0'
+    compile 'com.google.firebase:firebase-storage:10.2.0'
+    compile 'com.google.firebase:firebase-messaging:10.2.0'
+    compile 'com.google.android.gms:play-services-maps:10.2.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
-
+    compile 'com.google.android.gms:play-services:10.2.0'
+    compile 'com.google.android.gms:play-services-location:10.2.0'
+    compile 'com.google.android.gms:play-services-places:10.2.0'
+    compile 'com.google.android.gms:play-services-nearby:10.2.0'
+    testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'

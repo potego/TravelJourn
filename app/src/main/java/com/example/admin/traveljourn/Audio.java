@@ -27,13 +27,15 @@ public class Audio extends AppCompatActivity {
 
     private TextView mRecordView;
     private Button mRecordBtn;
-    private MediaRecorder mRecoder;
+    private MediaRecorder mRecorder;
     private String mFileName = null;
 
     private static final String LOG_TAG = "Record_log";
 
     private StorageReference mStorage;
     private ProgressDialog mProgress;
+
+    private File instanceRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,35 +71,37 @@ public class Audio extends AppCompatActivity {
 
     }
 
-    private void startRecording(){
-        mRecoder = new MediaRecorder();
-        mRecoder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mRecoder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mRecoder.setOutputFile(mFileName);
-        mRecoder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+    private void startRecording() {
+        mRecorder = new MediaRecorder();
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        mRecorder.setOutputFile(mFileName);
+        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
         try {
-            mRecoder.prepare();
-        } catch (IllegalStateException e) {
-            // TODO Auto-generated catch block
-            Toast.makeText(getApplicationContext(), "IllegalStateException called", Toast.LENGTH_LONG).show();
-
-
+            mRecorder.prepare();
+            mRecorder.start();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            Toast.makeText(getApplicationContext(), "prepare() failed", Toast.LENGTH_LONG).show();
-
+            Log.e(LOG_TAG, "prepare() failed");
         }
 
-        mRecoder.start();
+
     }
 
-    private void stopRecording(){
-        mRecoder.stop();
-        mRecoder.release();
-        mRecoder = null;
+    private void stopRecording() {
+//        mRecorder.stop();
+//        mRecorder.release();
+//        mRecorder = null;
+        if (mRecorder != null) {
+            try {
+                mRecorder.stop();
+            } catch(RuntimeException e) {
 
-        uploadAudio();
+            } finally {
+                mRecorder.release();
+                mRecorder = null;
+            }
+        }
     }
 
     private void uploadAudio() {

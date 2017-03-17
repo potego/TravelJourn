@@ -1,10 +1,5 @@
 package com.example.admin.traveljourn;
 
-
-/**
- * Created by admin on 2017/02/14.
- */
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
@@ -17,10 +12,15 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import static java.security.AccessController.getContext;
 
-public class MessageAdapter extends ArrayAdapter<messages>{
+/**
+ * Created by admin on 2017/03/08.
+ */
 
-    public MessageAdapter(Context context, int resource, List<messages> objects) {
+public class notesAdapter extends ArrayAdapter<Notes_saved> {
+
+    public notesAdapter(Context context, int resource, List<Notes_saved> objects) {
         super(context, resource);
     }
 
@@ -33,7 +33,7 @@ public class MessageAdapter extends ArrayAdapter<messages>{
         ImageView photoImageView = (ImageView) convertView.findViewById(R.id.photoImageView);
         TextView messageTextView = (TextView) convertView.findViewById(R.id.messageTextView);
 
-        messages message = getItem(position);
+        Notes_saved message = getItem(position);
 
         boolean isPhoto = message.getPhotoUrl() != null;
         if (isPhoto) {
@@ -47,7 +47,6 @@ public class MessageAdapter extends ArrayAdapter<messages>{
             photoImageView.setVisibility(View.GONE);
             messageTextView.setText(message.getText());
         }
-
 
         return convertView;
     }

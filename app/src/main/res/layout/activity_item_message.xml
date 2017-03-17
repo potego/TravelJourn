@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/journal"
     android:orientation="vertical"
     tools:context="com.example.admin.traveljourn.itemMessage">
 
@@ -22,17 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0"
+        android:textColor="#ccccc1"
+        android:textSize="30sp"
         android:textAppearance="?android:textAppearanceLarge"
         android:text="Message"/>
-
-     <TextView
-         android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         android:textAppearance="?android:textAppearanceMedium"
-        android:layout_weight="0"
-        android:text="Name"/>
-
 
 
 </LinearLayout>

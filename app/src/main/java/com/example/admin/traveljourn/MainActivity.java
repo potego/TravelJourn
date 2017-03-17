@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import static android.R.string.no;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,16 +29,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button avatar = (Button) findViewById(R.id.regBtn);
+        Button new_note = (Button) findViewById(R.id.regBtn);
+        Button sos = (Button) findViewById(R.id.sosView);
+        Button blog = (Button) findViewById(R.id.blog);
+        Button logout = (Button) findViewById(R.id.logout);
 
-        avatar.setOnClickListener(new View.OnClickListener(){
+        new_note.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View view){
                 //Intent to the profile activity
-                Intent profileIntent = new Intent(MainActivity.this, landingPage.class);
+                Intent profileIntent = new Intent(MainActivity.this, notes_messages.class);
                 startActivity(profileIntent);
             }
         });
+
+        sos.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+                //Intent to the profile activity
+                Intent profileIntent = new Intent(MainActivity.this, SOS.class);
+                startActivity(profileIntent);
+            }
+        });
+
+        blog.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+                //Intent to the profile activity
+                Intent profileIntent = new Intent(MainActivity.this, Chats.class);
+                startActivity(profileIntent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+               onClick(view);
+            }
+        });
+
 
         auth = FirebaseAuth.getInstance();
 
@@ -48,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .createSignInIntentBuilder()
                     .setProviders(
                             AuthUI.EMAIL_PROVIDER,
-                            AuthUI.FACEBOOK_PROVIDER,
                             AuthUI.GOOGLE_PROVIDER)
                     .build(), RC_SIGN_IN);
         }
